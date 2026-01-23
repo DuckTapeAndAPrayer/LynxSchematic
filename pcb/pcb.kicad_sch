@@ -1,0 +1,834 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "a3d12dc7-033a-4c99-b909-7e1454b0334e")
+	(paper "A4")
+	(lib_symbols)
+	(text "Lynx HIB Schematic"
+		(exclude_from_sim no)
+		(at 143.764 5.842 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+		)
+		(uuid "6abcd3fe-53b4-4942-a183-bb51482fde4c")
+	)
+	(text "Reverse Engineered with a Simpson 260 and ingenuity by bakl\nfrom Duck Tape and a Prayer FTC Team 5199."
+		(exclude_from_sim no)
+		(at 143.256 12.7 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "9d25f06a-3a50-4826-8d98-146792c8a62b")
+	)
+	(text_box "TODO:\n - Recheck all component connections - total pain to do, so I won't be doing it\n - Enter component part numbers from info.md into the schematic\n \n \n"
+		(exclude_from_sim no)
+		(at 7.62 7.62 0)
+		(size 73.66 193.04)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "6c4fec6c-e0cf-49e7-8d04-38dd950d32d4")
+	)
+	(text_box "Conventions:\n - Each overall module (major circuit of the lynx) should go in their own subsheet that is then placed onto the graphic to the left. The file name should be deleted to save space. All other subsheet file names should be kept.\n - Overall modules should not have hierarchical labels because they will clutter up the graphic. Instead overall modules should send signals between each other with Global Labels.\n - Subsheets of overall module sheets should not use global labels except for power connections, instead they should use hierarchical labels.\n - If a circuit has to be in repeated then a subsheet should be made and that should be repeated. Repeated subsheets should be children of overall modules not the root sheet to keep the first level schematic hierarchy clean.\n - A value with a question mark after it is unconfirmed. The value was likely derived from a recommended application off a datasheet or an educated guess.\n - A reference with a question mark after it indicates that the number wasn't printed on the silkscreen and was guessed from the values around it\n - Overall modules are marked as do not populate when they are incomplete\n\nShortcomings:\n - Some connections may be missing. This was made with a multimeter.\n - Some components are missing their reference number. This is because it doesn't seem to be printed on the silkscreen or because I forgot to copy the numbers down\n - Some components may have an incorrect reference number. I may have been looking at the wrong number\n - There are some reference numbers that are skipped. These seem to include R81, R82, R86, Q16, and Q17.\n - Some components don't have a correct value. Very few capacitors have a value because many had no value printed on them\n - Many components don't have the exact part number on them. The exact part number can be found by either Googling the markings or checking the info.md file\n - Some components don't have a symbol because they couldn't be identified\n - The test points on the back of the board have not been added\n "
+		(exclude_from_sim no)
+		(at 215.9 7.62 0)
+		(size 73.66 193.04)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "add63f3b-b3df-4c26-bfd0-7d9d17706744")
+	)
+	(text_box "This is supposed to be a stylized rendition of where the various modules on the lynx board."
+		(exclude_from_sim no)
+		(at 119.38 106.68 0)
+		(size 60.96 5.08)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "de53cee8-be8f-4f23-b697-2bce8f6fa644")
+	)
+	(sheet
+		(at 99.06 55.88)
+		(size 16.51 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "0c7f1e9d-643a-4741-8c79-f8bf32316efb")
+		(property "Sheetname" "12V"
+			(at 99.06 55.1684 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "12v.kicad_sch"
+			(at 99.06 69.1646 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "pcb"
+				(path "/a3d12dc7-033a-4c99-b909-7e1454b0334e"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 123.19 60.96)
+		(size 8.89 24.13)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "1b79f0e7-7983-46d6-a3f5-dfb61ac90c92")
+		(property "Sheetname" "3.3V"
+			(at 123.19 60.452 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "3v3.kicad_sch"
+			(at 123.19 65.3546 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "pcb"
+				(path "/a3d12dc7-033a-4c99-b909-7e1454b0334e"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 173.99 85.09)
+		(size 16.51 10.16)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "22d5d558-d68f-4f36-9580-06c4ed28e25a")
+		(property "Sheetname" "GPIO"
+			(at 173.99 84.3784 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "gpio.kicad_sch"
+			(at 173.99 95.8346 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "pcb"
+				(path "/a3d12dc7-033a-4c99-b909-7e1454b0334e"
+					(page "9")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 119.38 53.34)
+		(size 50.8 3.81)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "2852d2a3-22cd-4266-9d0c-f9eb62968661")
+		(property "Sheetname" "USB"
+			(at 119.38 52.6284 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "usb.kicad_sch"
+			(at 119.38 57.7346 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "pcb"
+				(path "/a3d12dc7-033a-4c99-b909-7e1454b0334e"
+					(page "16")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 173.99 71.12)
+		(size 16.51 10.16)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "295547b4-65e9-4ea1-a382-ad7656419152")
+		(property "Sheetname" "I2C"
+			(at 173.99 70.4084 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "i2c.kicad_sch"
+			(at 173.99 81.8646 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "pcb"
+				(path "/a3d12dc7-033a-4c99-b909-7e1454b0334e"
+					(page "10")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 173.99 99.06)
+		(size 16.51 3.81)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "7b292646-ebce-4304-945c-60713d7e1d49")
+		(property "Sheetname" "Analog In"
+			(at 173.99 98.3484 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "analog_in.kicad_sch"
+			(at 173.99 103.4546 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "pcb"
+				(path "/a3d12dc7-033a-4c99-b909-7e1454b0334e"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 173.99 63.5)
+		(size 16.51 3.81)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "8e836c84-fd1a-48d9-95f5-4bd0e47d0fa4")
+		(property "Sheetname" "RS485"
+			(at 173.99 62.7884 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "rs485.kicad_sch"
+			(at 173.99 67.8946 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "pcb"
+				(path "/a3d12dc7-033a-4c99-b909-7e1454b0334e"
+					(page "14")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 148.59 60.96)
+		(size 15.24 5.08)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "90aa235e-b43e-4667-8ffa-fd21dbf822c0")
+		(property "Sheetname" "VREFA+ Generator"
+			(at 148.59 60.2484 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "vrefa_plus.kicad_sch"
+			(at 148.59 66.6246 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "pcb"
+				(path "/a3d12dc7-033a-4c99-b909-7e1454b0334e"
+					(page "18")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 119.38 100.33)
+		(size 50.8 3.81)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "a0a9daa1-61e2-4f4c-9011-5688c02ebbf1")
+		(property "Sheetname" "5V"
+			(at 119.38 99.6184 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "5v.kicad_sch"
+			(at 119.38 104.7246 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "pcb"
+				(path "/a3d12dc7-033a-4c99-b909-7e1454b0334e"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 194.31 55.88)
+		(size 12.7 3.81)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "a524dd7d-621e-4997-8b8c-c6527e771780")
+		(property "Sheetname" "LED"
+			(at 194.31 55.1684 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "led.kicad_sch"
+			(at 194.31 60.2746 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "pcb"
+				(path "/a3d12dc7-033a-4c99-b909-7e1454b0334e"
+					(page "12")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 194.31 63.5)
+		(size 12.7 3.81)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "a9095bc3-73ca-413d-b1ae-a1ad45027eec")
+		(property "Sheetname" "User Button"
+			(at 194.31 62.7884 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "button.kicad_sch"
+			(at 194.31 67.8946 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "pcb"
+				(path "/a3d12dc7-033a-4c99-b909-7e1454b0334e"
+					(page "17")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 173.99 55.88)
+		(size 16.51 3.81)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "b8f79c65-c701-4073-81e3-f70b39f8d88b")
+		(property "Sheetname" "Debug UART"
+			(at 173.99 55.1684 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "debug_uart.kicad_sch"
+			(at 173.99 60.2746 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "pcb"
+				(path "/a3d12dc7-033a-4c99-b909-7e1454b0334e"
+					(page "8")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 135.89 66.04)
+		(size 3.81 7.62)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "bac669f6-d902-48ba-ac0a-3aa8bc4d7561")
+		(property "Sheetname" "SPI"
+			(at 135.636 65.532 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "spi.kicad_sch"
+			(at 140.462 83.566 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "pcb"
+				(path "/a3d12dc7-033a-4c99-b909-7e1454b0334e"
+					(page "15")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 143.51 69.85)
+		(size 16.51 15.24)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "c2bf59d1-7061-4bc6-a22a-4eecf0a515d0")
+		(property "Sheetname" "MCU"
+			(at 143.51 69.1384 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "mcu.kicad_sch"
+			(at 143.51 85.6746 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "pcb"
+				(path "/a3d12dc7-033a-4c99-b909-7e1454b0334e"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 119.38 88.9)
+		(size 31.75 3.81)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "c91c1107-fb60-42c6-b2d0-8c8672ef1044")
+		(property "Sheetname" "Android Header"
+			(at 119.38 88.1884 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "android_header.kicad_sch"
+			(at 119.38 93.2946 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "pcb"
+				(path "/a3d12dc7-033a-4c99-b909-7e1454b0334e"
+					(page "7")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 154.94 88.9)
+		(size 15.24 7.62)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "dce71a3c-778e-49e9-9add-f803d8ce3d57")
+		(property "Sheetname" "IMU"
+			(at 154.94 88.1884 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "imu.kicad_sch"
+			(at 154.94 97.1046 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "pcb"
+				(path "/a3d12dc7-033a-4c99-b909-7e1454b0334e"
+					(page "11")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 99.06 72.39)
+		(size 16.51 30.48)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "e8cf6190-eb38-4315-837d-fd912537e657")
+		(property "Sheetname" "Motors"
+			(at 99.06 71.6784 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "motors.kicad_sch"
+			(at 99.06 103.4546 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "pcb"
+				(path "/a3d12dc7-033a-4c99-b909-7e1454b0334e"
+					(page "13")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+	(embedded_files
+		(file
+			(name "clearSchem.kicad_wks")
+			(type worksheet)
+			(data |KLUv/SC8zQMAggcYF4CrAwAihAMuYmKyMEgYiZ8bhM1lY0nriBEn8T8SSvzDuVxOSqE7yZL1Rj8W
+				FJD0+OZNQ3/LAqC0H5/v9K8qy/dcVcQyvrdeT1EZn8mG7VZ5CFKgMPqUzaxOpFmNFY5sCAA1jSKT
+				G2iOBxzAzQaL6vV3S1cnBg==|
+			)
+			(checksum "5F20D0878091246FA9B9DBE498130E14")
+		)
+	)
+)

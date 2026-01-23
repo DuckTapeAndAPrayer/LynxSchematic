@@ -1,0 +1,6 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "TPS54527")(type "KiCad")(uri "${KIPRJMOD}/footprints/ul_TPS54527DDA/footprints.pretty")(options "")(descr ""))
+  (lib (name "TM4C123GH6PGEI7")(type "KiCad")(uri "${KIPRJMOD}/footprints/ul_TM4C123GH6PGEI7/footprints.pretty")(options "")(descr ""))
+  (lib (name "VNH5050A-E")(type "KiCad")(uri "${KIPRJMOD}/footprints/ul_VNH5050A-E/footprints.pretty")(options "")(descr ""))
+)

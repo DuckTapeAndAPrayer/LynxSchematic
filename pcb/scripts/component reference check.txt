@@ -1,0 +1,74 @@
+Indexing files ...
+Found file 'i2c.kicad_sch'
+Found file 'vrefa_plus.kicad_sch'
+Found file 'gpio_pin.kicad_sch'
+Found file 'button.kicad_sch'
+Found file 'motor.kicad_sch'
+Found file 'analog_in_connector.kicad_sch'
+Found file 'android_header.kicad_sch'
+Found file 'motors.kicad_sch'
+Found file '5v.kicad_sch'
+Found file 'encoder.kicad_sch'
+Found file 'servo.kicad_sch'
+Found file 'led.kicad_sch'
+Found file 'i2c_connector.kicad_sch'
+Found file 'spi.kicad_sch'
+Found file 'debug_uart.kicad_sch'
+Found file 'rs485.kicad_sch'
+Found file 'usb.kicad_sch'
+Found file '5v_buck.kicad_sch'
+Found file 'mcu.kicad_sch'
+Found file 'gpio.kicad_sch'
+Found file '12v.kicad_sch'
+Found file 'analog_in.kicad_sch'
+Found file '3v3.kicad_sch'
+Found file 'imu.kicad_sch'
+Found file 'aux_curr_sense.kicad_sch'
+Found file 'pcb.kicad_sch'
+
+Checking references ...
+Checking references of type 'C'
+Last reference C97
+
+Checking references of type 'U'
+Missing reference U17
+Duplicate reference 20
+Duplicate reference 20
+Duplicate reference 20
+Last reference U37
+
+Checking references of type 'F'
+Last reference F9
+
+Checking references of type 'J'
+WARNING: Found unreferenced symbol: J?
+WARNING: Found unreferenced symbol: J?
+WARNING: Found unreferenced symbol: J?
+Last reference J30
+
+Checking references of type 'R'
+WARNING: Found unreferenced symbol: R?
+Missing reference R81
+Missing reference R82
+Missing reference R86
+Last reference R136
+
+Checking references of type 'Q'
+Missing reference Q16
+Missing reference Q17
+Last reference Q29
+
+Checking references of type 'SW'
+Last reference SW1
+
+Checking references of type 'L'
+Last reference L5
+
+Checking references of type 'D'
+Last reference D5
+
+Checking references of type 'TP'
+Last reference TP4
+
+Checking references of type 'Y'
+Last reference Y2
