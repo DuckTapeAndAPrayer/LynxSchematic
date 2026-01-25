@@ -1,5 +1,5 @@
 # Lynx HIB (Hardware Interface Board) Schematic
-This repo contains a reverse engineered the Lynx HIB (REV Robotics Expansion Hub and the Expansion Hub part of the Control Hub). This was done with a multimeter. It may have some errors.
+This repo contains a reverse engineered schematic of the Lynx HIB (REV Robotics Expansion Hub and the Expansion Hub part of the Control Hub). This was done with a multimeter. It may have some errors.
 
 The schematic itself is in the `pcb` directory. Other info can be found in the `info` directory.
 
@@ -29,7 +29,7 @@ ESD Protection E3V3 Chip CPDV5-3V3UP
 Status LED D1 LTST-G683GEBW
 
 ### Transistors
-Reverse current protection BIG MOSFET FDD9409-F085  
+Reverse current protection big MOSFET FDD9409-F085  
 NPN Transistor 43 DTC143XKA  
 N channel MOSFET WJ3 BSH103  
 P channel MOSFET KFH 5V servo power enable SSM3J328R  
@@ -43,7 +43,7 @@ XT30 Female Amass [XT30UPB-F](https://www.tme.com/ux/en-us/details/xt30upb-f/dc-
 Mini USB B [MUSBS5FBM1RA](https://leoco.com.tw/product/mini-usb-connector/)  
  - That part number exists nowhere on the internet.
  - It also is Leoco product series 0850 and P/N 0850BFBD111. The F could be J or K as the gold plating thickness is unknown
- - TE Connectivity P/N 1734035-1 seems to have the same pad dimensions, so it may work
+ - TE Connectivity P/N 1734035-1 seems to have the same pad dimensions, so it may work  
 JTAG Connector Female Molex [53398-0671](https://www.molex.com/en-us/products/part-detail/533980671)  
 JTAG Connector Male Cable Molex [15134-0605](https://www.molex.com/en-us/products/part-detail/151340605)  
 All of shrouded external connectors are JST PH  
