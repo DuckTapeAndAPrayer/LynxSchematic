@@ -3,6 +3,13 @@ This repo contains a reverse engineered schematic of the Lynx HIB (REV Robotics 
 
 The schematic itself is in the `pcb` directory. Other info can be found in the `info` directory.
 
+## Note on PCB revisions
+This schematic was created from a rev 2.3 Lynx HIB. This revision uses a Bosch BNO055 IMU and still includes an IMU in Expansion Hubs. Control Hubs and Expansion Hubs of this revision only differ by the inclusion of an Android Board. Newer Control Hubs (sold after September 2022) seem to use a rev 2.4c HIB and have an Bosch BHI260AP IMU, so this schematic is not accurate for the IMU section of a rev 2.4c board. Other sections seem to be the same. I have not seen inside a  Expansion Hub without an IMU (those sold after December 1, 2021), so I don't know how they have changed from rev 2.3 and how accurate this schematic is for them.
+
+### References
+[Expansion Hub](https://www.revrobotics.com/blog/expansion-hub-IMU-updates)  
+[Control Hub and IMU differences](https://docs.revrobotics.com/duo-control/sensors/i2c/imu)
+
 ## Components
 A large chunk of the resistors are 0603  
 Aux Shunt resistors are 20 milli ohm in a 2512 package
