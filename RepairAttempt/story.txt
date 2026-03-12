@@ -7,6 +7,82 @@ well and return it to Rev for a refubished one.
 
 
 ==================================================
+2026-03-12
+================================================== 
+     The processor was resoldered in place, also the USB-TO-SERIAL converter, FT230XQ-R
+was resoldered. Unfortunately I had only 2 pcs of FT230XQ and I damaged the first one
+in the soldering process (temperature too high, case melted). The second one was put in place
+and recognized by computer when connected to usb. TI programming software (LMFlashProgrammer)
+did not communicate with target and future attempts to resolder the FT230 did not work well,
+so the second FT230 I had was also damaged (at least this is what i presume since it is not
+recognized any more as an usb device).
+     For debugging purposes I connected a cheap USB-to-SERIAL converter to UART 0 connector
+with a baudrate of 115200, 8/N/1. UART0 is near the edge of the board.
+     Future investigations revealed that a 0.55V was present on RESET_MCU pin, blocking the
+processor in reset state. I soldered jtag connector and connected to a FT2232H board already
+configured for ESP32 programming/debugging. Since all the standard JTAG signals were
+configured on this board, I was able to get CPUID out of jtag chain. The connection to 
+FT2232H board is as follows:
+GND to GND
+TCK on ADBUS0
+TDI on ADBUS1
+TDO on ADBUS2
+TMS on ADBUS3
+      You need to download openocd from
+https://github.com/sysprogs/openocd or
+https://codeload.github.com/ViaMonkey/openocd-esp32/zip/refs/heads/master
+      Then navigate to bin folder and run:
+openocd.exe -f interface/esp32_devkitj_v1.cfg -c "transport select jtag" -f target/stellaris.cfg -c "adapter speed 3000"
+      This is a part of the result (with reset pulled down by a broken IC):
+Info : JTAG tap: lm3s.cpu tap/device found: 0x4ba00477 (mfg: 0x23b (ARM Ltd), part: 0xba00, ver: 0x4)
+Info : DAP transaction stalled (WAIT) - slowing down
+Info : DAP transaction stalled during replay (WAIT) - resending
+
+     The part pulling down the RESET_MCU pin proved to be SN74LVC8T245, the bus voltage
+level converter. U22 was removed from board, the voltage on that pin rised to 3.3V and
+openocd succesfully connected to target. I asked chatgpt for a few commands, including
+the command to upload the firmware. Firmware can be downloaded from here:
+https://docs.revrobotics.com/duo-control/managing-the-control-system/updating-firmware/firmware-changelog
+
+     After openocd is connected to target, you should open a telnet connection
+to localhost:4444 to interact with the debugger. I prefer extraputty from this job,
+but you can use any telnet compatible software (builtin telnet, terraterm, putty)
+     Some useful gdb commands:
+reset halt - to put processor in halt state
+reset run - to run the firmware
+flash write_image erase firmware.bin 0x0 - to upload firmware to microcontroller (processor must be halted)
+verify_image firmware.bin 0x0 - to check if firmware was uploaded correctly 
+
+     To save your time and do not repeat my mistakes, you should check, before attempt
+to program the microcontroller, the following:
+- each VDD pin have a 3.3V voltage. check *each and every pin*
+- each GND pin have a 0V level
+- both VDDC pins have about 1.2V
+- nRST pin is at 3.3V
+- also VDDA should have 3.3V
+
+     Even if the FT230XQ is not present on my board, the power is extracted from USB connector
+via PUSBM5V5 and routed to TPS562209, then buck-converted to 3.3V. I had also another issue
+yesterday when board rebooted itself every one second, each and every time at the same point, 
+when trying to start task $8/12 PWM and Servo. Fortunately, today when I changed the computer
+I'm working on, the board started and led blinks yellow, which is exactly what it have
+to do when the board is powered from USB and 12V power is missing. I dont know what caused
+yesterday reboot loop and I have no intention to future investigate this, since is working now.
+
+     As I pressumed earlier, all the 3v3 logic should be dead, including level shifters,
+imu, rs485 and usb converter. In the following weeks I will try to replace what can be
+replaced (except BHI260 imu, which is too small, along with its counterpart BMM350
+magnetometer which is even smaller)
+
+     In the corresponding photos folder you can find a picture of the TM4C123's marked power pins,
+some screenshots of FT2232H as seen in device manager, some pictures with the BHI260 imu and 
+its magnetometer and also some random pictures with the board.
+
+
+
+
+
+==================================================
 2026-02-18
 ================================================== 
 Who am I:
