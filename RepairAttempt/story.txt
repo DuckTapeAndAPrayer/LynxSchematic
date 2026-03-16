@@ -1,8 +1,86 @@
 Disclaimer: if you open a rev control hub, it should be never used again in an
 official FTC competition because it is against the rules of FIRST. Rev Robotics
 provide a repair service at a half of the price for a new device. It's up to
-you tu decide if you want to repair it and learn new things or just pack it 
-well and return it to Rev for a refubished one.
+you to decide if you want to repair it and learn new things or just pack it 
+well and return to Rev for a refubished one.
+
+
+
+
+
+==================================================
+2026-03-16
+================================================== 
+     Yesterday I completed repairing the lynx board. I made a test program to check
+every single outside world pin. You can find the program and its hardware config
+in test_program folder. You should copy .java file in your teamcode folder and
+upload the config in your Rev Hub (or you can write your own config according
+to the provided one, or you can change the name of the devices in .java file where
+hardware map is parsed). On init phase you should see if any item of hardware map
+is missing then in run phase you can use gamepad 1:
+     - dpad up/down to navigate into menu
+     - dpad left/right to select values
+     - dpad left when "go back" is selected to exit current submenu
+     I made a cable connected to a double 10k potentiometer to test both analog and 
+digital input ports and 2 leds connected to vcc and output pin to test the
+digital outputs. Also, i2c ports are configured to use a gobilda pinpoint computer
+but you can modify the config and java file to use any device you have.
+     You should also connect to a computer using mini-usb port to test FT230 and
+to an expansion hub using rs485 interface to test the ST3485EB. I found no way
+to test those devices without a computer or an expansion hub.
+
+     I replaced 2 pieces of CPDV5-5V0U-HF 5v diodes with CPDV5-3V3U on digital ports
+1 & 3 because those diodes were exploded and the 3.3v version was all I had. I hope 
+to do not encounter any problems in the future if I will not use any 5V device
+on that ports.
+
+     Now I can provide a detailed list of broken/replaced parts (prices from mouser.com / one piece):
+     - U20 TM4C123GH6PGEI7 - main mcu ($16.32)
+     - U23 TPS562209 - smps on 3.3V rail ($0.74)
+     - U15 FT230XQ-R - usb-to-serial bridge ($2.26)
+     - U22 & U23 SN74LVC8T245 - bus level shifter (2x $1.79)
+     - U5 & U6 - CPDV5-5V0U - ESD protection diodes for digital pins 0..3 (2x $0.28)
+
+     What is really strange is the survival of BHI260 (IMU) and ST3485EB (rs485
+transceiver). I can only presume that components which failed first protected those
+two IC's by keeping the voltage low enough to save them.
+
+     What can be done to prevent such an event to happen again:
+
+1. Rev Robotics should change the design of 3.3V buck converter to use 
+TPS54202 instead TPS562209, doubling the maximum input voltage on LC transients and
+making the device less prone to fail. According to mouser.com, the price of TPS54202 
+is $0.987/100 pieces and the price for TPS562209 is $0.418/100pcs. The overall cost of
+this improvement is less $0.6/unit but it saves inestimable time and cost for FTC
+teams. Those chips are pin-to-pin compatible and do not require any board change.
+
+2. Rev Robotics may add a RC bridge to /EN pin of TPS562209, causing it to start
+a few milliseconds later than usual. This *may* prevent upside mosfet breaking down
+because it is not in conduction when the transient voltage appears. I had some issues
+with a board I designed for automotive years ago with LMR14206 (witch btw have a 
+maximum rating of 45V) and more than half of the devices failed at some point by 
+burning the smps at startup (car battery replacement, plug disconnect/reconnect).
+After adding 2x1M resistors and 100nf capacitor to /SHDN pin to enable soft start,
+this issue never happened again. This requireq a board change and should be considered 
+only for a new version of the control hub.
+
+3. Regular users like me can build a transient supressing device from a NTC, a TVS
+and a bypass relay. When the mechanichal switch is closed the voltage travels through
+NTC, any oscillation is killed by its startup resistance and any transient which may
+happen (less likely, but just in case) is shorted to ground by TVS. After a few
+milliseconds the relay closes and bypasses the NTC, keeping is cool for the next 
+power-up cycle. The current drawn at startup by Rev Control Hub is about 400mA/12V
+and a B57364S0259M054 NTC combined with 1.5KE18CA TVS and a simple 12V relay should
+protect any control hub, expansion hub and other devices powered from any 12V power source.
+In the photos folder you can find a blueprint of such I device I intend to build, because
+we will need the supercaps again while building and testing future robots. Be aware
+that you are not allowed to use such a device in official FTC competitions!
+
+4. Rev Robotics may add a 5V TVS on the 3.3V rail not to prevent burning the SMPS
+but to limit the damage. A 1.5KE6.8V should protect all the components on 3.3V rail
+by helping TPS562209 to burn faster when fails, without damaging sensitive devices.
+
+
 
 
 
@@ -64,7 +142,7 @@ to program the microcontroller, the following:
      Even if the FT230XQ is not present on my board, the power is extracted from USB connector
 via PUSBM5V5 and routed to TPS562209, then buck-converted to 3.3V. I had also another issue
 yesterday when board rebooted itself every one second, each and every time at the same point, 
-when trying to start task $8/12 PWM and Servo. Fortunately, today when I changed the computer
+when trying to start task #8/12 PWM and Servo. Fortunately, today when I changed the computer
 I'm working on, the board started and led blinks yellow, which is exactly what it have
 to do when the board is powered from USB and 12V power is missing. I dont know what caused
 yesterday reboot loop and I have no intention to future investigate this, since is working now.
