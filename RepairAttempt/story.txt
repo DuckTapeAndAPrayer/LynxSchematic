@@ -29,7 +29,7 @@ but you can modify the config and java file to use any device you have.
 to an expansion hub using rs485 interface to test the ST3485EB. I found no way
 to test those devices without a computer or an expansion hub.
 
-     I replaced 2 pieces of CPDV5-5V0U-HF 5v diodes with CPDV5-3V3U on digital ports
+     I replaced 2 pieces of CPDV5-5V0U 5v diodes with CPDV5-3V3U on digital ports
 1 & 3 because those diodes were exploded and the 3.3v version was all I had. I hope 
 to not encounter any problems in the future if I will not use any 5V device
 on those ports.
@@ -46,11 +46,11 @@ transceiver). I can only presume that components which failed first by shorting 
 protected those two IC's by keeping the voltage low enough to save them.
 
      While checking the datasheets of TPS562209 and SMF17A, I discovered that TPS562209 
-should accept transients up to VBST=27.5V and SW=21.9V, but only for 10ns. This may
+should accept transients up to VBST=27.5V and SW=21.0V, but only for 10ns. This may
 be the key aspect why it wasn't well protected by SMF17A, which does not have a well
-defined clamping time or an accurate graph of voltage vs time, but the times are defined
+defined clamping time or an accurate graph of voltage vs time, but the times are expressed
 in milliseconds (fig.4 - pulse waveform), or at best microseconds (fig.2 - peak pulse
-rating curve), whith is a few orders of magnitude higher than 10ns supported by TPS. I intend
+rating curve), which is a few orders of magnitude higher than 10ns supported by TPS. I intend
 to use an additional TVS outside the hub, near its power plug, and I take into consideration
 a larger TVS like 1.5KE18CA combined with a few ohms resistor/NTC to limit startup current.
 I used ChatGPT and Claude to help me understand the exact mechanism of avalanche TVS, breakdown
@@ -63,9 +63,10 @@ may be somewhere in the middle.
 case markings, like Y4SL, Y45L or Y4EL. They should be in the essence the same transistor
 but maybe from different batches or manufacturers. Measuring with multimeter they seems to
 be some general-purpose PNP transistor in SOT-23 package. Voltage drops between terminals are:
-550mV (probably BE) and 800mV (possibly CE). All the measurement were made in circuit, while
+550mV (probably BE) and 800mV (possibly BC). All the measurement were made in circuit, while
 searching why  digital pins D1 & D3 were (almost) shorted to ground. In the end it was found 
-to be the corresponding ESD device the one who was driving the pin low.
+to be the corresponding ESD array the one who was driving the pin low. Neither Google, nor
+ChatGPT or Claude could provide an exact answer with a device code for that particular transistor.
 
      What can be done to prevent such an event to happen again:
 
@@ -73,7 +74,7 @@ to be the corresponding ESD device the one who was driving the pin low.
 TPS54202 instead TPS562209, doubling the maximum input voltage on LC transients and
 making the device less prone to fail. According to mouser.com, the unit price of TPS54202 
 is $0.987/100 pieces and the price for TPS562209 is $0.418/100pcs. The overall cost of
-this improvement is less $0.6/unit but it saves inestimable time and cost for FTC
+this improvement is less than $0.6/unit but it saves inestimable time and cost for FTC
 teams. Those chips are pin-to-pin compatible and I think it do not require any board change.
 
 2. Rev Robotics may add a RC bridge to /EN pin of TPS562209, causing it to start
@@ -113,7 +114,16 @@ small & sensitive 3.3v logic. The drawback of this design is that any shorted de
 powered from that 5v rail will cause a voltage drop in 3v3 domain and lynx board may
 experience an unexpected reset.
 
-
+     In the end I would like to suggest a test for Q&A team of the REV Robotics if 
+someone on their side will ever read this document: I presume you already have a couple 
+of test devices which you use for sw development, to upload your nightly changes, 
+your RC versions and to make regression testing. You may use a standard relay to 
+power-up each test device for a few days, to simulate normal on/off power cycle of standard
+usage of the product, one cycle every 2 seconds. Then observe if any of your test
+devices breaks in the process. And I strongly suggest to use a very low-ESR power supply
+because a device should not rely on the internal resistance of the battery pack. Maybe
+someday in the future FTC will allow LiPo batteries and their internal resistance will
+be very close to what we experienced with supercaps.
 
 
 
@@ -224,10 +234,10 @@ It worked flawlessly for months.
      In the fatal day, we just pressed the official rev switch to turn on the robot like we
 did for hundreds of times before. I always look at the hub when I turn it on to see if the led
 lights blue to confirm the power on. It didn't turn on this time and I think I heard a 
-hissing sound (it wasn't perfectly quiet, there were people around moving and talking). I turn
+hissing sound (it wasn't perfectly quiet, there were people around moving and talking). I turned
 it off in about 2 seconds because something didn't look right. I looked again at the wires 
 to check if we connected something wrong, if the isolation is not broken and other issues.
-Nothing was wrong, so we turn it back on again. Led stay off, expansion hub started, servo 
+Nothing was wrong, so we turn it back on again. Led stayed off, expansion hub started, servo 
 power module started but main hub refused to start. This was the moment when we saw a little
 smoke coming out of the hub.
      First question on our lips was: what the #^(! just happened? (this word was removed
@@ -247,11 +257,11 @@ ends here and one catastrophic, when input voltage flows into the regulated volt
 We removed the exploded TPS562209 and we measured resistance on the terminals of the C63.
 We found it to be something about 1 ohm, so the conclusion was clear: a short between power
 and ground exists in 3v3 domain, which is anything but a good news. We took our lab power source, 
-set it to 3v3 150mA and powered the capacitor: voltage dropped under 1V and the power source 
+set it to 3v3 150mA and powered up the capacitor: voltage dropped under 1V and the power supply
 entered in current limiting mode. Then we slowly increased the current to about 700mA to check 
 what is heating up and we found to be the main microcontroller of the board, the TM4C123GH6PGE.
 We removed it from the board and the short circuit dissapeared, then the remaining components
-of the board draw aprox 180mA at 3.3V and nothing is heating any more.
+of the board drove about 180mA at 3.3V and nothing is heating any more.
      The conclusion is now clear: 12V rushed into 3v3 domain and we assume everything powered
 from that rail is broken, with high chances to break also the 5v domain (servo controllers),
 wich we didn't yet check. Unfortunately, on 3v3 rail there are connected all the ICs like usb
@@ -264,10 +274,10 @@ the future if the part which is actually linked to lynx board is still working o
 12V also damaged something in the android board.
      So far, we found that 3v3 buck is dead (exploded), main processor is dead (heating up
 at 1V), and usb bridge FT230XQ is also dead. We have all the reasons to believe that the IMU
-is also dead, the RS485 transceiver and virtually anything which have and absolute maximum rating
-below 12v, including diodes, transistors and maybe some small value resistors.
+is also dead, the RS485 transceiver and virtually anything which have an absolute maximum rating
+below 12V, including diodes, transistors and maybe some small value resistors.
      We came to the theory that it was the perfect condition generated by switch bounce combined
-with wire lenghts and external capacitors which created at least a spike in input voltage 
+with wire lenghts and external capacitors which created at least a spike in the input voltage 
 exceeding 17V. After this treshold, upside mosfet inside TPS562209 failed, leaving unregulated
 voltage to flow into 3v3 bus. Another theory is that TPS562209 encountered an unexpected
 condition when it tried to start under an unstable input voltage generated by switch bounce and opened
@@ -294,7 +304,7 @@ believe this is a design error for an edge-case event rather than improper use.
 0. Check transistors, diodes and resistors on the board with a multimeter to see any abnormal values
 1. replace the main microcontroller TM4C123GH6PGE and add JTAG connector to the board
 2. try to upload firmware into it with JTAG (power the board using limited current, using lab source)
-3. check if is booting up, check if it say something on serial debug interface(s)
+3. check if is booting up, check if it says anything on serial debug interface(s)
 4. connect the android board to check if the communication between boards is still working
 5. Add 12V power to the board, check if android is still alive using supplied power from lynx
 6. Check if 5v domain is still working
