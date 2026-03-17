@@ -31,8 +31,8 @@ to test those devices without a computer or an expansion hub.
 
      I replaced 2 pieces of CPDV5-5V0U-HF 5v diodes with CPDV5-3V3U on digital ports
 1 & 3 because those diodes were exploded and the 3.3v version was all I had. I hope 
-to do not encounter any problems in the future if I will not use any 5V device
-on that ports.
+to not encounter any problems in the future if I will not use any 5V device
+on those ports.
 
      Now I can provide a detailed list of broken/replaced parts (prices from mouser.com / one piece):
      - U20 TM4C123GH6PGEI7 - main mcu ($16.32)
@@ -42,17 +42,39 @@ on that ports.
      - U5 & U6 - CPDV5-5V0U - ESD protection diodes for digital pins 0..3 (2x $0.28)
 
      What is really strange is the survival of BHI260 (IMU) and ST3485EB (rs485
-transceiver). I can only presume that components which failed first protected those
-two IC's by keeping the voltage low enough to save them.
+transceiver). I can only presume that components which failed first by shorting to ground
+protected those two IC's by keeping the voltage low enough to save them.
+
+     While checking the datasheets of TPS562209 and SMF17A, I discovered that TPS562209 
+should accept transients up to VBST=27.5V and SW=21.9V, but only for 10ns. This may
+be the key aspect why it wasn't well protected by SMF17A, which does not have a well
+defined clamping time or an accurate graph of voltage vs time, but the times are defined
+in milliseconds (fig.4 - pulse waveform), or at best microseconds (fig.2 - peak pulse
+rating curve), whith is a few orders of magnitude higher than 10ns supported by TPS. I intend
+to use an additional TVS outside the hub, near its power plug, and I take into consideration
+a larger TVS like 1.5KE18CA combined with a few ohms resistor/NTC to limit startup current.
+I used ChatGPT and Claude to help me understand the exact mechanism of avalanche TVS, breakdown
+voltage, local silicon energy hotspots, material degradation and other concepts and I learned
+that the response time of a TVS should be around 50ps, which in theory is more than perfect
+to protect the circuit. But also the mosfet can experience avalanche so in the end the truth
+may be somewhere in the middle.
+
+     I wasn't able to identify transistors connected to D0..D7 pins. They have different
+case markings, like Y4SL, Y45L or Y4EL. They should be in the essence the same transistor
+but maybe from different batches or manufacturers. Measuring with multimeter they seems to
+be some general-purpose PNP transistor in SOT-23 package. Voltage drops between terminals are:
+550mV (probably BE) and 800mV (possibly CE). All the measurement were made in circuit, while
+searching why  digital pins D1 & D3 were (almost) shorted to ground. In the end it was found 
+to be the corresponding ESD device the one who was driving the pin low.
 
      What can be done to prevent such an event to happen again:
 
-1. Rev Robotics should change the design of 3.3V buck converter to use 
+1. Rev Robotics may consider to change the design of 3.3V buck converter to use 
 TPS54202 instead TPS562209, doubling the maximum input voltage on LC transients and
-making the device less prone to fail. According to mouser.com, the price of TPS54202 
+making the device less prone to fail. According to mouser.com, the unit price of TPS54202 
 is $0.987/100 pieces and the price for TPS562209 is $0.418/100pcs. The overall cost of
 this improvement is less $0.6/unit but it saves inestimable time and cost for FTC
-teams. Those chips are pin-to-pin compatible and do not require any board change.
+teams. Those chips are pin-to-pin compatible and I think it do not require any board change.
 
 2. Rev Robotics may add a RC bridge to /EN pin of TPS562209, causing it to start
 a few milliseconds later than usual. This *may* prevent upside mosfet breaking down
@@ -61,17 +83,19 @@ with a board I designed for automotive years ago with LMR14206 (witch btw have a
 maximum rating of 45V) and more than half of the devices failed at some point by 
 burning the smps at startup (car battery replacement, plug disconnect/reconnect).
 After adding 2x1M resistors and 100nf capacitor to /SHDN pin to enable soft start,
-this issue never happened again. This requireq a board change and should be considered 
-only for a new version of the control hub.
+this issue never happened again. This requires a board change and should be considered 
+only for a new version of the control hub / lynx board.
 
 3. Regular users like me can build a transient supressing device from a NTC, a TVS
-and a bypass relay. When the mechanichal switch is closed the voltage travels through
+and a bypass relay. The whole ideea of this device is to limit inrush current and
+kill any LC oscillation at startup without limiting the high current required by
+motors. When the mechanichal switch is closed the voltage travels through
 NTC, any oscillation is killed by its startup resistance and any transient which may
 happen (less likely, but just in case) is shorted to ground by TVS. After a few
 milliseconds the relay closes and bypasses the NTC, keeping is cool for the next 
 power-up cycle. The current drawn at startup by Rev Control Hub is about 400mA/12V
 and a B57364S0259M054 NTC combined with 1.5KE18CA TVS and a simple 12V relay should
-protect any control hub, expansion hub and other devices powered from any 12V power source.
+protect any control hub, expansion hub and other device powered from any 12V power source.
 In the photos folder you can find a blueprint of such I device I intend to build, because
 we will need the supercaps again while building and testing future robots. Be aware
 that you are not allowed to use such a device in official FTC competitions!
@@ -79,6 +103,15 @@ that you are not allowed to use such a device in official FTC competitions!
 4. Rev Robotics may add a 5V TVS on the 3.3V rail not to prevent burning the SMPS
 but to limit the damage. A 1.5KE6.8V should protect all the components on 3.3V rail
 by helping TPS562209 to burn faster when fails, without damaging sensitive devices.
+It don't know if it really works, it's just an idea.
+
+5. Also a change with cascading power feeding can be considered for a new design, where
+the only device that may experience transients to be the 12v/5v smps, then the voltage to be
+subsequently lowered to 3.3v, something like 12v --> 5v --> 3.3v. Usually the 5V part have
+a SMPS IC with higher maximum ratings and even if it fails will somehow protect the
+small & sensitive 3.3v logic. The drawback of this design is that any shorted device
+powered from that 5v rail will cause a voltage drop in 3v3 domain and lynx board may
+experience an unexpected reset.
 
 
 
@@ -87,7 +120,7 @@ by helping TPS562209 to burn faster when fails, without damaging sensitive devic
 ==================================================
 2026-03-12
 ================================================== 
-     The processor was resoldered in place, also the USB-TO-SERIAL converter, FT230XQ-R
+     The processor was resoldered in place, also the USB-TO-SERIAL converter, FT230XQ-R,
 was resoldered. Unfortunately I had only 2 pcs of FT230XQ and I damaged the first one
 in the soldering process (temperature too high, case melted). The second one was put in place
 and recognized by computer when connected to usb. TI programming software (LMFlashProgrammer)
@@ -189,7 +222,7 @@ power delivery to motors: when the power supply source cannot delivery all the p
 stored in capacitors provided the extra amount then, when you stop moving, they are recharged.
 It worked flawlessly for months.
      In the fatal day, we just pressed the official rev switch to turn on the robot like we
-did for hundreds of time before. I always look at the hub when I turn it on to see if the led
+did for hundreds of times before. I always look at the hub when I turn it on to see if the led
 lights blue to confirm the power on. It didn't turn on this time and I think I heard a 
 hissing sound (it wasn't perfectly quiet, there were people around moving and talking). I turn
 it off in about 2 seconds because something didn't look right. I looked again at the wires 
@@ -215,7 +248,7 @@ We removed the exploded TPS562209 and we measured resistance on the terminals of
 We found it to be something about 1 ohm, so the conclusion was clear: a short between power
 and ground exists in 3v3 domain, which is anything but a good news. We took our lab power source, 
 set it to 3v3 150mA and powered the capacitor: voltage dropped under 1V and the power source 
-entered in current limit mode. Then we slowly increased the current to about 700mA to check 
+entered in current limiting mode. Then we slowly increased the current to about 700mA to check 
 what is heating up and we found to be the main microcontroller of the board, the TM4C123GH6PGE.
 We removed it from the board and the short circuit dissapeared, then the remaining components
 of the board draw aprox 180mA at 3.3V and nothing is heating any more.
@@ -253,7 +286,7 @@ One supercap have an ESR of about 5 mOhms, so a pack of six should have about 25
 battery cell is around 30-50 mOhms so a pack of 10-series cells should be 300-500mOhm. This
 would limit the inrush current to only 24A (in theory) instead 480A provided by capacitors, either
 case being way too much to prevent 3v3 buck failure. This is why I think the capacitors
-were not the cause of the disaster, but they were a favorable factor. Since we saw a hub failing
+were not the root cause of the disaster, but they were a favorable factor. Since we saw a hub failing
 the same way in an official competition, using official gobilda battery, we are inclined to
 believe this is a design error for an edge-case event rather than improper use.
 
