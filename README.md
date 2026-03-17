@@ -27,6 +27,7 @@ Op Amp for shunts K176 SOT 23-5 ST LMV321RILT
 AAXXX U17 Adjustable shunt voltage regulator TL431ASA  
 High side current monitor U25 ZXCT1010E5TA  
 USB OTG ESD Diodes U19 PUSBM5V5X4-TL
+Rev > 2.3 SPI flash W25Q64JWSSIQ 
 
 ### Diodes
 Big zener diode for motor drives D4 1SMB5931BT3G  
@@ -67,6 +68,7 @@ bM Fuse - 0.5A hold current - 0ZCK0050FF2E
 ### Mystery Components
 D2  
 D3 Maybe ESD Protection Diode LittelFuse SMF17A  
+All the capacitors
  
 ## Notes about the board
 The board seems to have more than two layers, so the creation of a schematic by observation wasn't possible
