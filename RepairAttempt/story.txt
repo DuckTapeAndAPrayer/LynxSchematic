@@ -13,7 +13,7 @@ well and return to Rev for a refubished one.
 ================================================== 
      Yesterday I completed repairing the lynx board. I made a test program to check
 every single outside world pin. You can find the program and its hardware config
-in test_program folder. You should copy .java file in your teamcode folder and
+in test_program folder. You should copy .java files into your teamcode folder and
 upload the config in your Rev Hub (or you can write your own config according
 to the provided one, or you can change the name of the devices in .java file where
 hardware map is parsed). On init phase you should see if any item of hardware map
