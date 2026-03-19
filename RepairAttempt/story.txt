@@ -1,4 +1,4 @@
-Disclaimer: if you open a rev control hub, it should be never used again in an
+Disclaimer: if you open a rev control hub, it should never be used again in an
 official FTC competition because it is against the rules of FIRST. Rev Robotics
 provide a repair service at a half of the price for a new device. It's up to
 you to decide if you want to repair it and learn new things or just pack it 
@@ -31,7 +31,7 @@ to test those devices without a computer or an expansion hub.
 
      I replaced 2 pieces of CPDV5-5V0U 5v diodes with CPDV5-3V3U on digital ports
 1 & 3 because those diodes were exploded and the 3.3v version was all I had. I hope 
-to not encounter any problems in the future if I will not use any 5V device
+not to encounter any problems in the future if I will not use any 5V device
 on those ports.
 
      Now I can provide a detailed list of broken/replaced parts (prices from mouser.com / one piece):
@@ -42,8 +42,8 @@ on those ports.
      - U5 & U6 - CPDV5-5V0U - ESD protection diodes for digital pins 0..3 (2x $0.28)
 
      What is really strange is the survival of BHI260 (IMU) and ST3485EB (rs485
-transceiver). I can only presume that components which failed first by shorting to ground
-protected those two IC's by keeping the voltage low enough to save them.
+transceiver). I can only presume that components which failed first, shorting to ground,
+thus protected those two ICs by keeping the voltage low enough to save them.
 
      While checking the datasheets of TPS562209 and SMF17A, I discovered that TPS562209 
 should accept transients up to VBST=27.5V and SW=21.0V, but only for 10ns. This may
@@ -75,7 +75,7 @@ TPS54202 instead TPS562209, doubling the maximum input voltage on LC transients 
 making the device less prone to fail. According to mouser.com, the unit price of TPS54202 
 is $0.987/100 pieces and the price for TPS562209 is $0.418/100pcs. The overall cost of
 this improvement is less than $0.6/unit but it saves inestimable time and cost for FTC
-teams. Those chips are pin-to-pin compatible and I think it do not require any board change.
+teams. Those chips are pin-to-pin compatible and I think it does not require any board change.
 
 2. Rev Robotics may add a RC bridge to /EN pin of TPS562209, causing it to start
 a few milliseconds later than usual. This *may* prevent upside mosfet breaking down
@@ -93,18 +93,18 @@ kill any LC oscillation at startup without limiting the high current required by
 motors. When the mechanichal switch is closed the voltage travels through
 NTC, any oscillation is killed by its startup resistance and any transient which may
 happen (less likely, but just in case) is shorted to ground by TVS. After a few
-milliseconds the relay closes and bypasses the NTC, keeping is cool for the next 
+milliseconds the relay closes and bypasses the NTC, keeping it cool for the next 
 power-up cycle. The current drawn at startup by Rev Control Hub is about 400mA/12V
 and a B57364S0259M054 NTC combined with 1.5KE18CA TVS and a simple 12V relay should
 protect any control hub, expansion hub and other device powered from any 12V power source.
-In the photos folder you can find a blueprint of such I device I intend to build, because
+In the photos folder you can find a blueprint of such a device I intend to build, because
 we will need the supercaps again while building and testing future robots. Be aware
 that you are not allowed to use such a device in official FTC competitions!
 
 4. Rev Robotics may add a 5V TVS on the 3.3V rail not to prevent burning the SMPS
 but to limit the damage. A 1.5KE6.8V should protect all the components on 3.3V rail
 by helping TPS562209 to burn faster when fails, without damaging sensitive devices.
-It don't know if it really works, it's just an idea.
+I don't know if it really works, it's just an idea.
 
 5. Also a change with cascading power feeding can be considered for a new design, where
 the only device that may experience transients to be the 12v/5v smps, then the voltage to be
@@ -174,10 +174,10 @@ reset run - to run the firmware
 flash write_image erase firmware.bin 0x0 - to upload firmware to microcontroller (processor must be halted)
 verify_image firmware.bin 0x0 - to check if firmware was uploaded correctly 
 
-     To save your time and do not repeat my mistakes, you should check, before attempt
+     To save your time and avoid repeating my mistakes, you should check, before attempt
 to program the microcontroller, the following:
-- each VDD pin have a 3.3V voltage. check *each and every pin*
-- each GND pin have a 0V level
+- each VDD pin has a 3.3V voltage. check *each and every pin*
+- each GND pin has a 0V level
 - both VDDC pins have about 1.2V
 - nRST pin is at 3.3V
 - also VDDA should have 3.3V
@@ -188,9 +188,9 @@ yesterday when board rebooted itself every one second, each and every time at th
 when trying to start task #8/12 PWM and Servo. Fortunately, today when I changed the computer
 I'm working on, the board started and led blinks yellow, which is exactly what it have
 to do when the board is powered from USB and 12V power is missing. I dont know what caused
-yesterday reboot loop and I have no intention to future investigate this, since is working now.
+yesterday reboot loop and I have no intention of investigating this further, since is working now.
 
-     As I pressumed earlier, all the 3v3 logic should be dead, including level shifters,
+     As I presumed earlier, all the 3v3 logic should be dead, including level shifters,
 imu, rs485 and usb converter. In the following weeks I will try to replace what can be
 replaced (except BHI260 imu, which is too small, along with its counterpart BMM350
 magnetometer which is even smaller)
@@ -210,10 +210,10 @@ Who am I:
      I am a friend of #28260 Coral Tech FTC team and I help them with ideas and
 technical knowledge. I work in IT industry, over the years I did and still do software 
 development for embedded devices, networking, telemetry, digital forensics and digital research.
-I also have a passion to understant how things works and digging into electronic devices
+I also have a passion to understand how things works and digging into electronic devices
 was a hobby since I was in elementary school. I have no official role on the team and I
 explicitly requested not to be included as a mentor, but I assured them I will be here 
-supporting them everytime they need. We were together when this story begun...
+supporting them every time they need. We were together when this story begun...
 
 How I got into this:
      The team built a robot for 2025/2026 FTC decode season and had only 2 and a half batteries
@@ -228,7 +228,7 @@ we powered it from a chinese power supply or worse, directly from a battery char
 found a stabilised lab power supply with adjustable voltage and current limiter. It worked
 perfect, but a drawback was that it can supply only 5A, not enough if you want to move
 the robot. Solution? A 6-pack of 2.7V/500F supercaps. This solved the problem of instant
-power delivery to motors: when the power supply source cannot delivery all the power, energy
+power delivery to motors: when the power supply source cannot deliver all the power, energy
 stored in capacitors provided the extra amount then, when you stop moving, they are recharged.
 It worked flawlessly for months.
      In the fatal day, we just pressed the official rev switch to turn on the robot like we
@@ -237,15 +237,15 @@ lights blue to confirm the power on. It didn't turn on this time and I think I h
 hissing sound (it wasn't perfectly quiet, there were people around moving and talking). I turned
 it off in about 2 seconds because something didn't look right. I looked again at the wires 
 to check if we connected something wrong, if the isolation is not broken and other issues.
-Nothing was wrong, so we turn it back on again. Led stayed off, expansion hub started, servo 
+Nothing was wrong, so we turned it back on. The led stayed off, expansion hub started, servo 
 power module started but main hub refused to start. This was the moment when we saw a little
 smoke coming out of the hub.
      First question on our lips was: what the #^(! just happened? (this word was removed
 because it breaks the FIRST Gracious Professionalism code). We saw this happen to another
 team, during a competition, no more than 3 weeks ago and they were forced to abandon 
-and were disqualified. In a few minutes it was clear that some catastrophyc failure
+and were disqualified. In a few minutes it was clear that some catastrophic failure
 happened inside the hub and it is dead. We are living in the EU, the Rev is in US, we have
-regionals in 2 weeks and no spare control hub. Only the Rev Robotics can officialy repair a 
+regionals in 2 weeks and no spare control hub. Only the Rev Robotics can officially repair a 
 broken control hub, so it was clear that solution will not work for us. Next day we ordered
 a new control hub from the EU supplier (it came in 3 days) but meanwhile we agreed to open
 the broken one to try to repair it. We assumed that some buck converter IC exploded because
@@ -257,16 +257,16 @@ ends here and one catastrophic, when input voltage flows into the regulated volt
 We removed the exploded TPS562209 and we measured resistance on the terminals of the C63.
 We found it to be something about 1 ohm, so the conclusion was clear: a short between power
 and ground exists in 3v3 domain, which is anything but a good news. We took our lab power source, 
-set it to 3v3 150mA and powered up the capacitor: voltage dropped under 1V and the power supply
+set it to 3.3V 150mA and powered up the 3.3V rail: the voltage dropped under 1V and the power supply
 entered in current limiting mode. Then we slowly increased the current to about 700mA to check 
 what is heating up and we found to be the main microcontroller of the board, the TM4C123GH6PGE.
 We removed it from the board and the short circuit dissapeared, then the remaining components
-of the board drove about 180mA at 3.3V and nothing is heating any more.
+of the board drew about 180mA at 3.3V and nothing is heating any more.
      The conclusion is now clear: 12V rushed into 3v3 domain and we assume everything powered
 from that rail is broken, with high chances to break also the 5v domain (servo controllers),
-wich we didn't yet check. Unfortunately, on 3v3 rail there are connected all the ICs like usb
+wich we haven't yet checked. Unfortunately, on 3v3 rail there are connected all the ICs like usb
 bridge, IMU and rs485 transceiver. Next quick test was to connect the board to a computer
-through mini-usb port, to see it the usb bridge is still alive. If it was, then something
+through mini-usb port, to see if the usb bridge is still alive. If it was, then something
 like FT232 serial converter should have appear in device manager, but nothing did.
      In all the mess, a good news: android board is still working. At least, it boots up, 
 hdmi is working but it says it cannot communicate with internal expansion hub. We will see in
@@ -286,10 +286,10 @@ In either case, in milliseconds, everything failed and TPS562209 exploded.
      This situation could have been prevented by the designers of the lynx board by adding a TVS diode
 before the buck, adding a tvs diode after the buck or by simply not relying on TPS562209's startup
 delay of 1ms by adding a RC bridge on EN pin to allow a greater startup time, knowing the fact
-that theirs board will be used in conditions where a certain mechanical switch is required
+that their board will be used in conditions where a certain mechanical switch is required
 between the battery and the board. This chip is starting under heavy load due to all components
 connected on 3v3 domain, including the small capacitors scattered all over the board which are
-at 0V and all demand a high current in fist milliseconds after power on. As you may already
+at 0V and all demand a high current in the fist milliseconds after power on. As you may already
 guessed so far, the external 20A fuse from the power line still survived after this event :)
      What is different between a pack of supercaps and a battery is the ESR or internal resistance.
 One supercap have an ESR of about 5 mOhms, so a pack of six should have about 25 mOhms. A NiMH 
