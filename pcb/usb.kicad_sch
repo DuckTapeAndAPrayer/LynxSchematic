@@ -4484,6 +4484,16 @@
 		)
 		(uuid "156a7897-b9a3-44d7-98b9-ef2001337579")
 	)
+	(text "L2 is an educated guess"
+		(exclude_from_sim no)
+		(at 163.83 124.46 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "3ba493dc-091e-43c9-9e87-97daf91e2a16")
+	)
 	(text "5V feedthrough for when\nthe battery is disconnected"
 		(exclude_from_sim no)
 		(at 143.51 66.548 0)

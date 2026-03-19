@@ -25,7 +25,7 @@
 		)
 		(uuid "9d25f06a-3a50-4826-8d98-146792c8a62b")
 	)
-	(text_box "TODO:\n - Recheck all component connections - total pain to do, so I won't be doing it\n - Enter component part numbers from info.md into the schematic\n \n \n"
+	(text_box "TODO:\n - Recheck all component connections - total pain to do, so I won't be doing it\n - Enter component part numbers from README.md into the schematic\n - Add test points\n \n"
 		(exclude_from_sim no)
 		(at 7.62 7.62 0)
 		(size 73.66 193.04)
@@ -45,7 +45,7 @@
 		)
 		(uuid "6c4fec6c-e0cf-49e7-8d04-38dd950d32d4")
 	)
-	(text_box "Conventions:\n - Each overall module (major circuit of the lynx) should go in their own subsheet that is then placed onto the graphic to the left. The file name should be deleted to save space. All other subsheet file names should be kept.\n - Overall modules should not have hierarchical labels because they will clutter up the graphic. Instead overall modules should send signals between each other with Global Labels.\n - Subsheets of overall module sheets should not use global labels except for power connections, instead they should use hierarchical labels.\n - If a circuit has to be in repeated then a subsheet should be made and that should be repeated. Repeated subsheets should be children of overall modules not the root sheet to keep the first level schematic hierarchy clean.\n - A value with a question mark after it is unconfirmed. The value was likely derived from a recommended application off a datasheet or an educated guess.\n - A reference with a question mark after it indicates that the number wasn't printed on the silkscreen and was guessed from the values around it\n - Overall modules are marked as do not populate when they are incomplete\n\nShortcomings:\n - Some connections may be missing. This was made with a multimeter.\n - Some components are missing their reference number. This is because it doesn't seem to be printed on the silkscreen or because I forgot to copy the numbers down\n - Some components may have an incorrect reference number. I may have been looking at the wrong number\n - There are some reference numbers that are skipped. These seem to include R81, R82, R86, Q16, and Q17.\n - Some components don't have a correct value. Very few capacitors have a value because many had no value printed on them\n - Many components don't have the exact part number on them. The exact part number can be found by either Googling the markings or checking the info.md file\n - Some components don't have a symbol because they couldn't be identified\n - The test points on the back of the board have not been added\n "
+	(text_box "Conventions:\n - Each overall module (major circuit of the lynx) should go in their own subsheet that is then placed onto the graphic to the left. The file name should be deleted to save space. All other subsheet file names should be kept.\n - Overall modules should not have hierarchical labels because they will clutter up the graphic. Instead overall modules should send signals between each other with Global Labels.\n - Subsheets of overall module sheets should not use global labels except for power connections, instead they should use hierarchical labels.\n - If a circuit has to be in repeated then a subsheet should be made and that should be repeated. Repeated subsheets should be children of overall modules not the root sheet to keep the first level schematic hierarchy clean.\n - A value with a question mark after it is unconfirmed. The value was likely derived from a recommended application off a datasheet or an educated guess.\n - A reference with a question mark after it indicates that the number wasn't printed on the silkscreen and was guessed from the values around it\n - Overall modules are marked as do not populate when they are incomplete\n\nShortcomings:\n - Some connections may be missing. This was made with a multimeter.\n - Some components are missing their reference number. This is because it doesn't seem to be printed on the silkscreen or because I forgot to copy the numbers down\n - Some components may have an incorrect reference number. I may have been looking at the wrong number\n - There are some reference numbers that are skipped. These seem to include R81, R82, R86, Q16, and Q17.\n - Some components don't have a correct value. Very few capacitors have a value because many had no value printed on them\n - Many components don't have the exact part number on them. The exact part number can be found by either Googling the markings or checking the README.md file\n - Some components don't have a symbol because they couldn't be identified\n - The test points on the back of the board have not been added\n "
 		(exclude_from_sim no)
 		(at 215.9 7.62 0)
 		(size 73.66 193.04)
@@ -65,7 +65,7 @@
 		)
 		(uuid "add63f3b-b3df-4c26-bfd0-7d9d17706744")
 	)
-	(text_box "This is supposed to be a stylized rendition of where the various modules on the lynx board."
+	(text_box "This is supposed to be a stylized rendition of where the various modules on the Lynx board."
 		(exclude_from_sim no)
 		(at 119.38 106.68 0)
 		(size 60.96 5.08)

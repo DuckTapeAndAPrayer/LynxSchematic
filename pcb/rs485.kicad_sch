@@ -2234,6 +2234,16 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "L1 is an educated guess"
+		(exclude_from_sim no)
+		(at 145.542 64.77 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "1d477f20-d9e7-4de3-9ac6-82315c285f7c")
+	)
 	(junction
 		(at 127 71.12)
 		(diameter 0)

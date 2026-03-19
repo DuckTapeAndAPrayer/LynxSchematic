@@ -5,4 +5,7 @@
   (lib (name "CPDV5")(type "KiCad")(uri "${KIPRJMOD}/footprints/CPDV5/2025-06-04_17-24-57.kicad_sym")(options "")(descr ""))
   (lib (name "VNH5050A-E")(type "KiCad")(uri "${KIPRJMOD}/footprints/ul_VNH5050A-E/2025-06-05_20-58-53.kicad_sym")(options "")(descr ""))
   (lib (name "PUSBM5V5X4_TL_115")(type "KiCad")(uri "${KIPRJMOD}/footprints/PUSBM5V5X4_TL_115/2025-08-02_02-43-25.kicad_sym")(options "")(descr ""))
+  (lib (name "BHI260AP")(type "KiCad")(uri "${KIPRJMOD}/footprints/BHI260AP/BHI260AP.kicad_sym")(options "")(descr ""))
+  (lib (name "W25Q64JWSSIQ")(type "KiCad")(uri "${KIPRJMOD}/footprints/W25Q64JWSSIQ/W25Q64JWSSIQ.kicad_sym")(options "")(descr ""))
+  (lib (name "BMM150")(type "KiCad")(uri "${KIPRJMOD}/footprints/BMM150/BMM150.kicad_sym")(options "")(descr ""))
 )
