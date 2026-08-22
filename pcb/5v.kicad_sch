@@ -6801,7 +6801,7 @@
 		(instances
 			(project "pcb"
 				(path "/a3d12dc7-033a-4c99-b909-7e1454b0334e/a0a9daa1-61e2-4f4c-9011-5688c02ebbf1"
-					(page "1")
+					(page "24")
 				)
 			)
 		)
@@ -6907,7 +6907,7 @@
 		(instances
 			(project "pcb"
 				(path "/a3d12dc7-033a-4c99-b909-7e1454b0334e/a0a9daa1-61e2-4f4c-9011-5688c02ebbf1"
-					(page "2")
+					(page "28")
 				)
 			)
 		)
@@ -7013,7 +7013,7 @@
 		(instances
 			(project "pcb"
 				(path "/a3d12dc7-033a-4c99-b909-7e1454b0334e/a0a9daa1-61e2-4f4c-9011-5688c02ebbf1"
-					(page "3")
+					(page "33")
 				)
 			)
 		)
@@ -7089,7 +7089,7 @@
 		(instances
 			(project "pcb"
 				(path "/a3d12dc7-033a-4c99-b909-7e1454b0334e/a0a9daa1-61e2-4f4c-9011-5688c02ebbf1"
-					(page "4")
+					(page "36")
 				)
 			)
 		)
@@ -7165,7 +7165,7 @@
 		(instances
 			(project "pcb"
 				(path "/a3d12dc7-033a-4c99-b909-7e1454b0334e/a0a9daa1-61e2-4f4c-9011-5688c02ebbf1"
-					(page "0")
+					(page "19")
 				)
 			)
 		)

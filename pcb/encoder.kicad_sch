@@ -5,7 +5,7 @@
 	(uuid "304f3368-0db8-447c-986f-0ef620c15caf")
 	(paper "A4")
 	(lib_symbols
-		(symbol "CPDV5:CPDV5-3V3UP"
+		(symbol "CPDV5:CPDV5-5V0U"
 			(pin_names
 				(offset 0.254)
 			)
@@ -24,7 +24,7 @@
 					)
 				)
 			)
-			(property "Value" "CPDV5-3V3UP"
+			(property "Value" "CPDV5-5V0U"
 				(at 20.32 5.08 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -46,7 +46,7 @@
 					)
 				)
 			)
-			(property "Datasheet" "CPDV5-3V3UP"
+			(property "Datasheet" "CPDV5-5V0U"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -69,7 +69,17 @@
 					)
 				)
 			)
-			(property "ki_keywords" "CPDV5-3V3UP"
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "CPDV5-5V0U"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -91,7 +101,7 @@
 					)
 				)
 			)
-			(symbol "CPDV5-3V3UP_0_1"
+			(symbol "CPDV5-5V0U_0_1"
 				(polyline
 					(pts
 						(xy 7.62 2.54) (xy 7.62 -12.7)
@@ -1782,7 +1792,7 @@
 		)
 	)
 	(symbol
-		(lib_id "CPDV5:CPDV5-3V3UP")
+		(lib_id "CPDV5:CPDV5-5V0U")
 		(at 120.65 93.98 0)
 		(unit 1)
 		(body_style 1)
@@ -1803,7 +1813,7 @@
 				)
 			)
 		)
-		(property "Value" "CPDV5-3V3UP"
+		(property "Value" "CPDV5-5V0U"
 			(at 135.89 88.9 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1825,7 +1835,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "CPDV5-3V3UP"
+		(property "Datasheet" "CPDV5-5V0U"
 			(at 120.65 93.98 0)
 			(hide yes)
 			(show_name no)

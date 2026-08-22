@@ -650,152 +650,40 @@
   },
   "sheets": [
     [
-      "4cbb4657-8977-47b3-965b-fac9beef0131",
-      "Encoder 0"
-    ],
-    [
-      "c6ca2653-fc34-4916-8fd3-6eed031747ad",
-      "5V Buck"
-    ],
-    [
-      "876697c6-2b18-4b99-897a-bace880a266f",
-      "I2C 0"
-    ],
-    [
-      "290630f6-b5d1-498a-a2ec-7c6333b8381a",
-      "GPIO Pin 0"
-    ],
-    [
-      "947b605d-ecf7-40be-88b8-ee0ffbd528a0",
-      "Analog In 0,1"
+      "955d7ba4-43e9-48cc-80f4-54d0dbaf74cb",
+      "Motor 0"
     ],
     [
       "a3d12dc7-033a-4c99-b909-7e1454b0334e",
       "pcb"
     ],
     [
-      "7b90efb8-620c-4e3c-95fe-c38a7c5eb0e1",
-      "Encoder 1"
-    ],
-    [
-      "0407524f-6832-4405-b9c8-63014052352c",
-      "Servo 0,1"
-    ],
-    [
-      "e9135c69-600d-46a0-b833-5286a61317e0",
-      "I2C 1"
-    ],
-    [
-      "0691322a-99fb-4d2a-8eea-90dcad3a61f6",
-      "GPIO Pin 1"
-    ],
-    [
-      "48524a33-9f4b-449f-9934-0c1efd3f3c0d",
-      "Analog In 2,3"
-    ],
-    [
-      "1daec1bb-1e25-4597-bd5b-fbf1737ba0f5",
-      "Encoder 2"
-    ],
-    [
-      "293e22d8-75cc-4fc9-81d9-8a53463c1bad",
-      "Servo 2,3"
-    ],
-    [
-      "c2bf59d1-7061-4bc6-a22a-4eecf0a515d0",
-      "MCU"
-    ],
-    [
-      "93a23cca-27db-47e1-be8d-3ee9db8374f7",
-      "I2C 2"
-    ],
-    [
-      "129e21de-2a45-489b-90d6-450632d5953d",
-      "GPIO Pin 2"
+      "6041fc62-f01a-4236-9d29-164e61e563ec",
+      "Motor 1"
     ],
     [
       "0c7f1e9d-643a-4741-8c79-f8bf32316efb",
       "12V"
     ],
     [
-      "356a60bf-44bd-4e94-9202-d3d55028cccc",
-      "Encoder 3"
-    ],
-    [
-      "7c2b3cd1-0d08-4c3a-99ee-071ae1cf0cbc",
-      "Servo 4,5"
-    ],
-    [
-      "604806c2-58cd-448e-972c-ca486ae4a2da",
-      "I2C 3"
-    ],
-    [
-      "743183c7-340b-4c3b-97e2-d8539bf4d135",
-      "GPIO Pin 3"
-    ],
-    [
-      "955d7ba4-43e9-48cc-80f4-54d0dbaf74cb",
-      "Motor 0"
-    ],
-    [
-      "8eee1bf8-0bf3-4720-a168-1c2862dcc261",
-      "5V current sense"
-    ],
-    [
-      "1b79f0e7-7983-46d6-a3f5-dfb61ac90c92",
-      "3.3V"
-    ],
-    [
-      "ddc362a4-8889-47f4-9daf-dacf8244e1df",
-      "I2C Current Sense"
-    ],
-    [
-      "75690f44-27c2-4782-af08-3f96dcf47a96",
-      "GPIO Pin 4"
-    ],
-    [
-      "6041fc62-f01a-4236-9d29-164e61e563ec",
-      "Motor 1"
-    ],
-    [
-      "a0a9daa1-61e2-4f4c-9011-5688c02ebbf1",
-      "5V"
-    ],
-    [
-      "b008b4e5-7812-4a42-b052-97309e968291",
-      "GPIO Pin 5"
-    ],
-    [
       "39130a60-c9cf-47d2-a7a1-3915c3582b9d",
       "Motor 2"
-    ],
-    [
-      "ffcdf10b-3e96-453f-aac0-adde7250d52b",
-      "GPIO Pin 6"
-    ],
-    [
-      "7b292646-ebce-4304-945c-60713d7e1d49",
-      "Analog In"
     ],
     [
       "6f7ce9fa-6b45-49bd-a5e4-b4a13bc43b68",
       "Motor 3"
     ],
     [
-      "c91c1107-fb60-42c6-b2d0-8c8672ef1044",
-      "Android Header"
+      "4cbb4657-8977-47b3-965b-fac9beef0131",
+      "Encoder 0"
     ],
     [
-      "f1510c5b-5be2-4474-a7d5-6ab05b00d739",
-      "GPIO Pin 7"
+      "7b90efb8-620c-4e3c-95fe-c38a7c5eb0e1",
+      "Encoder 1"
     ],
     [
       "b8f79c65-c701-4073-81e3-f70b39f8d88b",
       "Debug UART"
-    ],
-    [
-      "3afd8b65-5e8f-456f-901a-359e005fc99e",
-      "GPIO Current Sense"
     ],
     [
       "22d5d558-d68f-4f36-9580-06c4ed28e25a",
@@ -836,6 +724,118 @@
     [
       "90aa235e-b43e-4667-8ffa-fd21dbf822c0",
       "VREFA+ Generator"
+    ],
+    [
+      "c6ca2653-fc34-4916-8fd3-6eed031747ad",
+      "5V Buck"
+    ],
+    [
+      "876697c6-2b18-4b99-897a-bace880a266f",
+      "I2C 0"
+    ],
+    [
+      "290630f6-b5d1-498a-a2ec-7c6333b8381a",
+      "GPIO Pin 0"
+    ],
+    [
+      "947b605d-ecf7-40be-88b8-ee0ffbd528a0",
+      "Analog In 0,1"
+    ],
+    [
+      "1daec1bb-1e25-4597-bd5b-fbf1737ba0f5",
+      "Encoder 2"
+    ],
+    [
+      "0407524f-6832-4405-b9c8-63014052352c",
+      "Servo 0,1"
+    ],
+    [
+      "e9135c69-600d-46a0-b833-5286a61317e0",
+      "I2C 1"
+    ],
+    [
+      "0691322a-99fb-4d2a-8eea-90dcad3a61f6",
+      "GPIO Pin 1"
+    ],
+    [
+      "48524a33-9f4b-449f-9934-0c1efd3f3c0d",
+      "Analog In 2,3"
+    ],
+    [
+      "293e22d8-75cc-4fc9-81d9-8a53463c1bad",
+      "Servo 2,3"
+    ],
+    [
+      "c2bf59d1-7061-4bc6-a22a-4eecf0a515d0",
+      "MCU"
+    ],
+    [
+      "93a23cca-27db-47e1-be8d-3ee9db8374f7",
+      "I2C 2"
+    ],
+    [
+      "129e21de-2a45-489b-90d6-450632d5953d",
+      "GPIO Pin 2"
+    ],
+    [
+      "356a60bf-44bd-4e94-9202-d3d55028cccc",
+      "Encoder 3"
+    ],
+    [
+      "7c2b3cd1-0d08-4c3a-99ee-071ae1cf0cbc",
+      "Servo 4,5"
+    ],
+    [
+      "604806c2-58cd-448e-972c-ca486ae4a2da",
+      "I2C 3"
+    ],
+    [
+      "743183c7-340b-4c3b-97e2-d8539bf4d135",
+      "GPIO Pin 3"
+    ],
+    [
+      "8eee1bf8-0bf3-4720-a168-1c2862dcc261",
+      "5V current sense"
+    ],
+    [
+      "1b79f0e7-7983-46d6-a3f5-dfb61ac90c92",
+      "3.3V"
+    ],
+    [
+      "ddc362a4-8889-47f4-9daf-dacf8244e1df",
+      "I2C Current Sense"
+    ],
+    [
+      "75690f44-27c2-4782-af08-3f96dcf47a96",
+      "GPIO Pin 4"
+    ],
+    [
+      "a0a9daa1-61e2-4f4c-9011-5688c02ebbf1",
+      "5V"
+    ],
+    [
+      "b008b4e5-7812-4a42-b052-97309e968291",
+      "GPIO Pin 5"
+    ],
+    [
+      "ffcdf10b-3e96-453f-aac0-adde7250d52b",
+      "GPIO Pin 6"
+    ],
+    [
+      "7b292646-ebce-4304-945c-60713d7e1d49",
+      "Analog In"
+    ],
+    [
+      "c91c1107-fb60-42c6-b2d0-8c8672ef1044",
+      "Android Header"
+    ],
+    [
+      "f1510c5b-5be2-4474-a7d5-6ab05b00d739",
+      "GPIO Pin 7"
+    ],
+    [
+      "3afd8b65-5e8f-456f-901a-359e005fc99e",
+      "GPIO Current Sense"
     ]
   ],
   "text_variables": {},
